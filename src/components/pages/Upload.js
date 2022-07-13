@@ -6,11 +6,14 @@ import Main from '../atoms/Main'
 import Section from '../atoms/Section'
 import Column from '../atoms/Column'
 import Image from '../atoms/Image'
-import { Text, H1, H2 } from '../atoms/Text'
+import { Text, H1, H2, Output } from '../atoms/Text'
+import Console from '../atoms/OutputBox'
 
 import logo from '../assets/pastebin.png'
 
 import '../../temp.css'
+import OutputBox from '../atoms/OutputBox'
+import Header from '../molecules/Header'
 
 const token = process.env.REACT_APP_WEB3_STORAGE_API
 
@@ -43,8 +46,8 @@ function Upload() {
 		showMessage('> 📡 fetching the list of all unique uploads on this account')
 		let totalBytes = 0
 		for await (const upload of client.list()) {
-		showMessage(`> 📄 ${upload.cid}  ${upload.name}`)
-		totalBytes += upload.dagSize || 0
+			showMessage(`> 📄 ${upload.cid}  ${upload.name}`)
+			totalBytes += upload.dagSize || 0
 		}
 		showMessage(`> ⁂ ${totalBytes.toLocaleString()} bytes stored!`)
 	}
@@ -55,22 +58,29 @@ function Upload() {
 
 	return (
 		<Container>
+
+			<Header/>
 			
 			<Main justify='flex-start'>
 
-				<Section height='600px' justify='space-around' direction="column">
+				<Section width='600px' height='600px' justify='space-around' direction='row'>
 
-					<Column align='center' height='600px' >
+					<Column width='600px' height='400px' align='center'>
 
 						<form id='upload-form' onSubmit={handleSubmit}>
 							<label htmlFor='filepicker'>Pick files to store</label>
 							<input type='file' id='filepicker' name='fileList' onChange={e => setFiles(e.target.files)} multiple required />
 							<input type='submit' value='Submit' id='submit' />
 						</form>
-						<div id='output'>
-							&gt; ⁂ waiting for form submission...
-							{messages.map((m, i) => <div key={m + i}>{m}</div>)}
-						</div>
+
+					</Column>
+
+					<Column width='600px' height='300px' align='flex-start'>
+
+						<OutputBox maxHeight='300px' >
+							<Output>&gt; ⁂ waiting for form submission...</Output>
+							{messages.map((m, i) => <Output key={m + i}>{m}</Output>)}
+						</OutputBox>
 
 					</Column>
 
