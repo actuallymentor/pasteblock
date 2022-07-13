@@ -13,6 +13,7 @@ import logo from '../assets/pastebin.png'
 
 import '../../temp.css'
 import OutputBox from '../atoms/OutputBox'
+import Header from '../molecules/Header'
 
 const token = process.env.REACT_APP_WEB3_STORAGE_API
 
@@ -57,6 +58,8 @@ function Upload() {
 
 	return (
 		<Container>
+
+			<Header/>
 			
 			<Main justify='flex-start'>
 

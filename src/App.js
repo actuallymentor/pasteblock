@@ -4,8 +4,8 @@ import Theme from './components/atoms/Theme'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 // Pages
-import HomePage from './components/organisms/Home'
-import UploadFile from './components/organisms/Upload'
+import HomePage from './components/pages/Home'
+import UploadFile from './components/pages/Upload'
 
 // Components
 import Loading from './components/molecules/Loading'

@@ -1,5 +1,6 @@
 import logo from '../assets/pastebin.png'
 
+import Header from '../molecules/Header'
 import Main from '../atoms/Main'
 import Container from '../atoms/Container'
 import Section from '../atoms/Section'
@@ -10,12 +11,15 @@ import Button from '../atoms/Button'
 
 import { useNavigate } from 'react-router-dom'
 
+
 function Home() {
 
 const navigate = useNavigate()
 
 return (
 	<Container>
+
+		<Header/>
 		
 		<Main justify='flex-start'>
 
