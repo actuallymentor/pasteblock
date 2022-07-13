@@ -1,4 +1,6 @@
 # Pasteblock
 
+## Branches
 
-
+- main
+- development
