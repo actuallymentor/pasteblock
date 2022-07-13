@@ -25,7 +25,7 @@ return (
 
 					<Image src={logo} width="80px" alt="logo" />
 
-					<Text>Pasteblock.xyz</Text>
+					<Text>Pasteblock</Text>
 						
 					<Button onClick={ f => navigate( '/upload' ) }>Upload</Button>
 

@@ -45,3 +45,15 @@ export const Br = styled.span`
 export const Sup = styled.sup`
 	overflow-wrap: anywhere;
 `
+
+export const Output = styled.p`
+    font-size: .7rem;
+    font-weight: 500;
+    line-height: 1.6;
+	margin: 0;
+	line-height: 1.2rem;
+	color: ${ ( { color } ) => color || 'lime' };
+	text-align: ${ ( { align } ) => align || 'left' };
+	overflow-wrap: anywhere;
+	background: ${ ( { background='initial' } ) => background };
+`
