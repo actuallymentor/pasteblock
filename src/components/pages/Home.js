@@ -1,6 +1,6 @@
 import logo from '../assets/pastebin.png'
 
-import Header from '../molecules/Header'
+import Header from '../organisms/Header'
 import Main from '../atoms/Main'
 import Container from '../atoms/Container'
 import Section from '../atoms/Section'
@@ -14,34 +14,34 @@ import { useNavigate } from 'react-router-dom'
 
 function Home() {
 
-const navigate = useNavigate()
+	const navigate = useNavigate()
 
-return (
-	<Container>
-
-		<Header/>
+	return (
 		
-		<Main justify='flex-start'>
+		<>
+			<Header/>
 
-			<Section height='600px' justify='space-around' direction="column">
+			<Main justify='flex-start'>
 
-				<Column align='center' >
+				<Section height='600px' justify='space-around' direction="column">
 
-					<Image src={logo} width="80px" alt="logo" />
+					<Column align='center' >
 
-					<Text>Pasteblock</Text>
-						
-					<Button onClick={ f => navigate( '/upload' ) }>Upload</Button>
+						<Image src={logo} width="80px" alt="logo" />
 
-				</Column>
+						<Text>Pasteblock</Text>
+							
+						<Button onClick={ f => navigate( '/upload' ) }>Upload</Button>
 
-			</Section>
+					</Column>
 
-		</Main>
+				</Section>
 
-	</Container>
+			</Main>
 
-);
+		</>
+
+	)
 }
 
 export default Home
