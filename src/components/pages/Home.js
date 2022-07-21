@@ -6,8 +6,9 @@ import Container from '../atoms/Container'
 import Section from '../atoms/Section'
 import Column from '../atoms/Column'
 import Image from '../atoms/Image'
-import { Text, H1, H2 } from '../atoms/Text'
 import Button from '../atoms/Button'
+import Input from '../atoms/Input'
+import TextArea from '../atoms/TextArea'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -23,15 +24,26 @@ function Home() {
 
 			<Main justify='flex-start'>
 
-				<Section height='600px' justify='space-around' direction="column">
+				<Section justify='center' direction='column'>
 
-					<Column align='center' >
+					<Column direction='row' justify='space-between'>
 
-						<Image src={logo} width="80px" alt="logo" />
+						<Input placeholder='Add a title (Optional)'/>
 
-						<Text>Pasteblock</Text>
-							
-						<Button onClick={ f => navigate( '/upload' ) }>Upload</Button>
+					</Column>
+
+					<Column direction='row' align='flex-start'>
+
+						<TextArea placeholder='Paste your code here...'/>
+
+					</Column>
+
+
+					<Column direction='row' justify='space-between'>
+
+						<Input placeholder='Add a title (Optional)'/>
+
+						<Button>Create Block</Button>
 
 					</Column>
 
