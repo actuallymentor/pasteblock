@@ -6,14 +6,11 @@ import Main from '../atoms/Main'
 import Section from '../atoms/Section'
 import Column from '../atoms/Column'
 import Image from '../atoms/Image'
-import { Text, H1, H2, Output } from '../atoms/Text'
-import Console from '../atoms/OutputBox'
-
-import logo from '../assets/pastebin.png'
+import { OutputLink, Output } from '../atoms/Text'
 
 import '../../temp.css'
 import OutputBox from '../atoms/OutputBox'
-import Header from '../molecules/Header'
+import Header from '../organisms/Header'
 
 const token = process.env.REACT_APP_WEB3_STORAGE_API
 
@@ -53,11 +50,11 @@ function Upload() {
 	}
 
 	function showLink (url) {
-		showMessage(<span>&gt; 🔗 <a href={url}>{url}</a></span>)
+		showMessage(<span>&gt; 🔗 <OutputLink href={url}>{url}</OutputLink></span>)
 	}
 
 	return (
-		<Container>
+		<>
 
 			<Header/>
 			
@@ -75,7 +72,7 @@ function Upload() {
 
 					</Column>
 
-					<Column width='600px' height='300px' align='flex-start'>
+					<Column align='flex-start'>
 
 						<OutputBox maxHeight='300px' >
 							<Output>&gt; ⁂ waiting for form submission...</Output>
@@ -88,7 +85,7 @@ function Upload() {
 
 			</Main>
 
-		</Container>
+		</>
 	)
 }
 

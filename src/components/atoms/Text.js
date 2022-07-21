@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 export const Text = styled.p`
 	font-size: 1rem;
+	font-weight: ${ ( { weight } ) => weight || '300' };
 	margin: 1rem 0;
 	line-height: 1.5rem;
-	color: ${ ( { theme, color } ) => color || theme.colors.text };
+	color: ${ ( { theme, color } ) => color || 'var(--color-text);' };
 	text-align: ${ ( { align } ) => align || 'left' };
 	overflow-wrap: anywhere;
 	background: ${ ( { background='initial' } ) => background };
@@ -70,4 +71,17 @@ export const Output = styled.p`
 	text-align: ${ ( { align } ) => align || 'left' };
 	overflow-wrap: anywhere;
 	background: ${ ( { background='initial' } ) => background };
+`
+
+export const OutputLink = styled.a`
+    font-size: .7rem;
+    font-weight: 500;
+    line-height: 1.6;
+	margin: 0;
+	line-height: 1.2rem;
+	color: ${ ( { color } ) => color || 'aqua' };
+	text-align: ${ ( { align } ) => align || 'left' };
+	overflow-wrap: anywhere;
+	background: ${ ( { background='initial' } ) => background };
+	text-decoration: none;
 `
