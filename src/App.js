@@ -1,5 +1,6 @@
 // Providers
 import { Suspense } from 'react'
+import { GlobalStyles } from './components/atoms/GlobalStyles'
 import Theme from './components/atoms/Theme'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -16,6 +17,8 @@ import Loading from './components/molecules/Loading'
 export default function App( ) {
 
 return <Theme>
+
+	<GlobalStyles />
 
 	<Suspense fallback={ <Loading /> }>
 
