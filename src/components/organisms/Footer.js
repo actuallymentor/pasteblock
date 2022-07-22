@@ -16,15 +16,18 @@ const Footer = styled.footer`
     max-width: 1040px;
 	padding: 0;
     margin: 0 auto;
+    text-align: center;
 	& a {
 		padding: 0 1rem;
+	}
+    & p {
+		font-size: .5rem;
 	}
     height:50px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: #000;
 `
 
 export default ( { ...props } ) => <Footer>

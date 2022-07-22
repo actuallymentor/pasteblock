@@ -6,7 +6,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 // Pages
 import HomePage from './components/pages/Home'
-import UploadFile from './components/pages/Upload'
+import PublicArchive from './components/pages/Archive'
 
 // Components
 import Loading from './components/molecules/Loading'
@@ -27,7 +27,7 @@ return <Theme>
 			<Routes>
 
 				<Route exact path='/' element={ <HomePage /> } />
-				<Route exact path='/upload' element={ <UploadFile /> } />
+				<Route exact path='/archive' element={ <PublicArchive /> } />
 
 			</Routes>
 

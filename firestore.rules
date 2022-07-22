@@ -4,5 +4,12 @@ service cloud.firestore {
     match /{document=**} {
       allow read, write: if false;
     }
+
+    match /pastes/{cid} {
+
+      allow list, read: if true;
+
+    }
+
   }
 }
