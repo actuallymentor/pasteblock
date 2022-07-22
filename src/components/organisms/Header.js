@@ -33,8 +33,8 @@ export default ( { ...props } ) => <Menu>
 	
     <NavbarContainer>
         <NavbarLinkContainer>
-            <NavbarLink className="nav-link" to="/upload">
-                Upload
+            <NavbarLink className="nav-link" to="/archive">
+                Archive
             </NavbarLink>
         </NavbarLinkContainer>
     </NavbarContainer>
