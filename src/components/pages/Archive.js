@@ -14,7 +14,7 @@ import Header from '../organisms/Header'
 
 const token = process.env.REACT_APP_WEB3_STORAGE_API
 
-function Upload() {
+function Archive() {
 
 	const [messages, showMessage] = useReducer((msgs, m) => msgs.concat(m), [])
 	const [files, setFiles] = useState([])
@@ -89,4 +89,4 @@ function Upload() {
 	)
 }
 
-export default Upload
+export default Archive

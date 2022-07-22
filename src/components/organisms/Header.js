@@ -2,6 +2,7 @@ import React from "react"
 
 import styled from "styled-components"
 
+import Highlighter from "../atoms/Highlighter"
 
 import { Text } from '../atoms/Text'
 
@@ -12,14 +13,13 @@ const Menu = styled.header`
 	top: 0;
 	left: 0;
     right: 0;
-	width: 100%;
     max-width: 1040px;
 	padding: 0 1rem;
     margin: 0 auto;
 	& a {
 		margin: 0;
 	}
-    height:50px;
+    height:90px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -29,13 +29,13 @@ const Menu = styled.header`
 
 export default ( { ...props } ) => <Menu>
     <NavbarLink className="nav-link" to="/">
-        <Text weight="700">pasteblock</Text>
+        <Highlighter text='pasteblock' highlight='paste'/>
     </NavbarLink>
 	
     <NavbarContainer>
         <NavbarLinkContainer>
-            <NavbarLink className="nav-link" to="/upload">
-                Upload
+            <NavbarLink className="nav-link" to="/archive">
+                Archive
             </NavbarLink>
         </NavbarLinkContainer>
     </NavbarContainer>
