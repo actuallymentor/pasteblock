@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export default styled.section`
+export default styled.div`
 	padding: .5rem;
 	display: flex;
 	flex-direction: ${ ( { direction } ) => direction || 'column' };

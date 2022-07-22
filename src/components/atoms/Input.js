@@ -16,6 +16,7 @@ const Input = styled.div`
 	& select, input, & p {
 		padding: 1rem 0rem 1rem 1rem;
 		width: 100%;
+		font-weight: 600;
 	}
 
 	p {

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export default styled.main`
 	flex-grow: 1;
-	min-height: 100vh;
+	min-height: calc( 100vh - 140px );
 	width: 100%;
 	display: flex;
 	flex-direction: ${ ( { direction } ) => direction || 'column' };

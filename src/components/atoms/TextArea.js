@@ -9,9 +9,11 @@ export default styled.textarea`
 
 	border: 1px solid var(--color-areaborder);
 	border-radius: ${ ( { radius } ) => radius || '6px' };
+	
 
-	:focus-visible {
+	:focus-visible, :hover {
 		outline: 1px solid var(--color-highlight);
+		filter: drop-shadow(0px 0px 16px rgba(86, 102, 246, 0.25));
 	}
 
 `

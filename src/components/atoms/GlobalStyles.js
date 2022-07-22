@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
         font-family: 'Fira Code', 'Helvetica Neue', sans-serif;
+        font-size: 16px;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -19,6 +20,8 @@ export const GlobalStyles = createGlobalStyle`
         --color-textareabg: #FFFFFF;
         --color-areaborder: #D9DBE9;
         --color-highlight: #5666F6;
+        --color-btn-bg: #5FC5A6;
+        --color-btn-text : #FFFFFF;
     }
     @media (prefers-color-scheme: dark) {
         body {
@@ -35,7 +38,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: calc( 18px + .1vw );
     }
 
-    input {
+    input, button {
         font-family: 'Fira Code', 'Helvetica Neue', sans-serif;
     }
 
