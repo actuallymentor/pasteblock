@@ -38,8 +38,14 @@ export const GlobalStyles = createGlobalStyle`
         font-size: calc( 18px + .1vw );
     }
 
-    input, button {
+    input, button, span {
         font-family: 'Fira Code', 'Helvetica Neue', sans-serif;
+    }
+
+    mark {
+        color: white;
+        background-color: var(--color-highlight);
+        line-height: 1.2;
     }
 
 `

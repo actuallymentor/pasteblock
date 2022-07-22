@@ -2,6 +2,7 @@ import React from "react"
 
 import styled from "styled-components"
 
+import Highlighter from "../atoms/Highlighter"
 
 import { Text } from '../atoms/Text'
 
@@ -28,7 +29,7 @@ const Menu = styled.header`
 
 export default ( { ...props } ) => <Menu>
     <NavbarLink className="nav-link" to="/">
-        <Text weight="700">pasteblock</Text>
+        <Highlighter text='pasteblock' highlight='paste'/>
     </NavbarLink>
 	
     <NavbarContainer>
