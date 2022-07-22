@@ -38,7 +38,8 @@ export const GlobalStyles = createGlobalStyle`
         font-size: calc( 18px + .1vw );
     }
 
-    input, button, span {
+    select, input, button, span {
+        font-size: 1em;
         font-family: 'Fira Code', 'Helvetica Neue', sans-serif;
     }
 

@@ -5,18 +5,38 @@ const Input = styled.div`
 
 	display: flex;
 	flex-direction: column;
-	margin: 1rem 0;
+	margin: .5rem 0;
 	
 	& select, input, & p {
-		background: ${ ( { theme } ) => theme.colors.backdrop };
+		background: transparent;
 		border: none;
-		border-left: 2px solid ${ ( { theme, highlight } ) => highlight ? theme.colors.accent : theme.colors.primary };
 	}
 
 	& select, input, & p {
-		padding: 1rem 0rem 1rem 1rem;
+		color: var(--color-text);
+		padding: .5rem;
 		width: 100%;
 		font-weight: 600;
+		::placeholder {
+			color: var(--color-text);
+		}
+	}
+
+	& select {
+		color: var(--color-text);
+		padding: .5rem 1.5rem .5rem .5rem;
+		font-weight: 400;
+		border: 1px solid var(--color-areaborder);
+		border-radius: ${ ( { radius } ) => radius || '6px' };
+		-webkit-appearance: none;
+		appearance: none;
+		background-image: url('/assets/img/chev-down.svg');
+		background-size: 12px;
+		background-repeat: no-repeat;
+		background-position: calc(100% - 8px) center;
+		::placeholder {
+			color: var(--color-text);
+		}
 	}
 
 	p {

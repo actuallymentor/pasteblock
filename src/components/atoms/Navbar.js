@@ -11,15 +11,14 @@ export const NavbarLinkContainer = styled.div`
 `
 
 export const NavbarLink = styled(Link)`
-    color:white;
-    font-size: x-large;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
     margin: 10px;
+    color: var(--color-text);
+    font-size: 1.125rem;
+    text-decoration: none;
     &:hover, &:focus {
-        color: grey;
+        color: var(--color-btn-bg);
     }
     &:active {
-        color: red;
+        color: var(--color-btn-bg);
     };
 `

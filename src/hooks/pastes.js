@@ -14,7 +14,8 @@ const get_text_content_of_url = url => fetch( url ).then( response => response.t
 * @property {String} paste.blockpaste_url - The local url of this paste
 * @property {Number} paste.updated - The timestamp at which this paste was last updated
 * @property {String} paste.updated_human - The human readable timestamp at which this paste was updated
-* @property {Function} paste.get - Asynchronous function that gets the text content from the ipfs_url*/
+* @property {Function} paste.get - Asynchronous function that gets the text content from the ipfs_url
+*/
 export function useRecentPastes( limit=5 ) {
 
     const [ pastes, set_pastes ] = useState( [] )
