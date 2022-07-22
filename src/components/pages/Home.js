@@ -40,7 +40,7 @@ function Home() {
 
 					<Column direction='row' justify='space-between'>
 
-						<Input placeholder='Add a title (Optional)' weight='700'/>
+						<Input type='dropdown' options={[{'label': 'Syntacs highlighting','value': ''},{'label': '.txt','value': 'txt'},{'label': '.json','value': 'json'}]} />
 
 						<Button>Create Block</Button>
 
