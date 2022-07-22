@@ -65,7 +65,30 @@ export function listen_to_document( collection, document, callback ) {
 	return onSnapshot( d, snap => {
 
 		const data = snap.data()
-		log( `Retreived document ${collection}/${document}: `, data )
+		// log( `Retreived document ${collection}/${document}: `, data )
+		callback( data )
+
+	} )
+
+}
+
+/**
+* Listen to a firestore document query
+* @param {String} collection - The name of the collection
+* @param {String} document - The path of the document within the given collection
+* @param {Function} callback - The callback that receives the changed value of the document
+* @returns {Function} Unsubscribe listener 
+*/
+export function listen_to_documents( query_collection, query_limit, callback, order_by='updated', order_direction='desc' ) {
+
+	log( `Listener requested for ${ query_limit } docs from ${ query_collection }` )
+	const path = collection( db, query_collection )
+	const q = query( path, orderBy( order_by, order_direction ), limit( query_limit ) )
+
+	return onSnapshot( q, snap => {
+
+		const data = snap.docs.map( doc => doc.data() )
+		// log( `Retreived ${ query_limit } documents from ${ query_collection }: `, data )
 		callback( data )
 
 	} )
