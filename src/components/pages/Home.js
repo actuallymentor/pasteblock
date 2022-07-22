@@ -6,8 +6,8 @@ import Section from '../atoms/Section'
 import Column from '../atoms/Column'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
-import { Text } from '../atoms/Text'
 import TextArea from '../atoms/TextArea'
+import PublicWidget from '../organisms/PublicWidget'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -50,9 +50,7 @@ function Home() {
 
 				<Section justify='center' direction='row' width='33%'>
 
-					<Text weight='600'>Lastest Public Blocks</Text>
-
-
+					<PublicWidget/>
 
 				</Section>
 
