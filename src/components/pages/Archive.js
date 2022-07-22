@@ -1,11 +1,9 @@
 import React, { useState, useReducer } from 'react'
 import { Web3Storage } from 'web3.storage'
 
-import Container from '../atoms/Container'
 import Main from '../atoms/Main'
 import Section from '../atoms/Section'
 import Column from '../atoms/Column'
-import Image from '../atoms/Image'
 import { OutputLink, Output } from '../atoms/Text'
 
 import '../../temp.css'

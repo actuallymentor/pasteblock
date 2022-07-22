@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.div`
-	padding: .5rem;
+	padding: 0;
 	display: flex;
 	flex-direction: ${ ( { direction } ) => direction || 'column' };
 	width: ${ ( { width } ) => width || '100%' };

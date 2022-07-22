@@ -12,4 +12,11 @@ export default styled.main`
 	flex-wrap: wrap;
 	align-items: ${ ( { align } ) => align || 'center' };
 	justify-content: ${ ( { justify } ) => justify || 'center' };
+	& section {
+		@media screen and ( max-width: 768px ) {
+			width: 100%;
+		}
+	}
+	
+	
 `

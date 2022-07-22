@@ -18,26 +18,17 @@ const Menu = styled.header`
     margin: 0 auto;
 	& a {
 		margin: 0;
+        font-weight: 600;
 	}
     height:90px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #000; */
 `
 
 export default ( { ...props } ) => <Menu>
     <NavbarLink className="nav-link" to="/">
         <Highlighter text='pasteblock' highlight='paste'/>
     </NavbarLink>
-	
-    <NavbarContainer>
-        <NavbarLinkContainer>
-            <NavbarLink className="nav-link" to="/archive">
-                Archive
-            </NavbarLink>
-        </NavbarLinkContainer>
-    </NavbarContainer>
-
 </Menu>

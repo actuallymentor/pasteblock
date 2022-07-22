@@ -1,12 +1,9 @@
-import logo from '../assets/pastebin.png'
 
 import Header from '../organisms/Header'
 import Main from '../atoms/Main'
 import Footer from '../organisms/Footer'
-import Container from '../atoms/Container'
 import Section from '../atoms/Section'
 import Column from '../atoms/Column'
-import Image from '../atoms/Image'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
 import { Text } from '../atoms/Text'
@@ -53,7 +50,9 @@ function Home() {
 
 				<Section justify='center' direction='row' width='33%'>
 
-				<Text>Lastest Public Blocks</Text>
+					<Text weight='600'>Lastest Public Blocks</Text>
+
+
 
 				</Section>
 
