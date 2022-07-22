@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "blockpaste"
+    "default": "blockpaste",
+    "production": "blockpaste"
   }
 }
