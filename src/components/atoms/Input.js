@@ -4,6 +4,7 @@ import { useRef } from 'react'
 const Input = styled.div`
 
 	display: flex;
+	flex-grow: 1;
 	flex-direction: column;
 	margin: .5rem 0;
 	
@@ -48,7 +49,7 @@ const Input = styled.div`
 		font-style: italic;
 		margin-bottom: .5rem;
 		display: flex;
-		width: 100%;
+		width: ${ ( { width='100%' } ) => width };
 		color: ${ ( { theme } ) => theme.colors.text };
 		span {
 			display: flex;

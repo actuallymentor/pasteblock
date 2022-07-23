@@ -10,11 +10,36 @@ import TextArea from '../atoms/TextArea'
 import PublicWidget from '../organisms/PublicWidget'
 
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import Loading from '../molecules/Loading'
+import { upload_file_to_web3 } from '../../modules/firebase'
+import { log } from '../../modules/helpers'
 
 
 function Home() {
-
+	
+	const [ title, set_title] = useState(  )
+	const [ content, set_content ] = useState()
+	const [ loading, set_loading ] = useState(  )
 	const navigate = useNavigate()
+
+	async function save_paste() {
+
+		try {
+
+			set_loading( 'Saving paste to web3 storage' )
+			const { data: paste_meta } = await upload_file_to_web3( { data_string: content, name: title } )
+			log( `Received paste meta: `, paste_meta )
+			navigate( `/view/${ paste_meta.cid }` )
+
+		} catch( e ) {
+			set_loading( false )
+			alert( `Error saving paste: `, e.message )
+		}
+
+	}
+
+	if( loading ) return <Loading message={ loading } />
 
 	return (
 		
@@ -27,22 +52,23 @@ function Home() {
 
 					<Column direction='row' justify='space-between'>
 
-						<Input placeholder='Add a title (Optional)'/>
+						<Input width='100%' onChange={ ( { target } ) => set_title( target.value ) } placeholder='Add a title (Optional)' value={ title }/>
 
 					</Column>
 
 					<Column direction='row' align='flex-start'>
 
-						<TextArea placeholder='Paste your code here...'/>
+						<TextArea onChange={ ( { target } ) => set_content( target.value ) } placeholder='Paste your code here...' value={ content }/>
 
 					</Column>
 
 
 					<Column direction='row' justify='space-between'>
 
-						<Input type='dropdown' options={[{'label': 'Syntacs highlighting','value': ''},{'label': '.txt','value': 'txt'},{'label': '.json','value': 'json'}]} />
+						{ /* Comment out syntax until we implemented it */ }
+						{ /* <Input type='dropdown' options={[{'label': 'Syntacs highlighting','value': ''},{'label': '.txt','value': 'txt'},{'label': '.json','value': 'json'}]} /> */ }
 
-						<Button>Create Block</Button>
+						<Button onClick={ save_paste } margin='1rem 0'>Create Block</Button>
 
 					</Column>
 
