@@ -11,5 +11,9 @@ export default styled.button`
 	border-radius: ${ ( { radius } ) => radius || '6px' };
 	&:hover {
 		cursor: pointer;
+		background: var(--color-btn-bg-h);
+	}
+	&:active {
+		background: var(--color-btn-bg-a);
 	}
 `

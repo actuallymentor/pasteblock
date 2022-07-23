@@ -16,9 +16,9 @@ export const NavbarLink = styled(Link)`
     font-size: 1.125rem;
     text-decoration: none;
     &:hover, &:focus {
-        color: var(--color-btn-bg);
+        color: var(--color-btn-bg-h);
     }
     &:active {
-        color: var(--color-btn-bg);
+        color: var(--color-btn-bg-a);
     };
 `

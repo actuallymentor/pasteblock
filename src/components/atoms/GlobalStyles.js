@@ -21,7 +21,11 @@ export const GlobalStyles = createGlobalStyle`
         --color-areaborder: #D9DBE9;
         --color-highlight: #5666F6;
         --color-btn-bg: #5FC5A6;
-        --color-btn-text : #FFFFFF;
+        --color-btn-bg-h: #45B090;
+        --color-btn-bg-a: #33D6A4;
+        --color-btn-text: #FFFFFF;
+        --wrapper-size: 1040px;
+        --header-height: 90px;
     }
     @media (prefers-color-scheme: dark) {
         body {
@@ -38,7 +42,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: calc( 18px + .1vw );
     }
 
-    select, input, button, span {
+    select, input, button, span, ul, li {
         font-size: 1em;
         font-family: 'Fira Code', 'Helvetica Neue', sans-serif;
     }

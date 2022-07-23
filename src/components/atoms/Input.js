@@ -14,13 +14,16 @@ const Input = styled.div`
 	}
 
 	& select, input, & p {
-		color: var(--color-text);
 		padding: .5rem;
 		width: 100%;
 		font-weight: 600;
 		::placeholder {
 			color: var(--color-text);
 		}
+	}
+
+	& input {
+		color: var(--color-highlight)
 	}
 
 	& select {
@@ -41,6 +44,7 @@ const Input = styled.div`
 	}
 
 	p {
+		color: var(--color-text);
 		font-size: .7rem;
 	}
 
