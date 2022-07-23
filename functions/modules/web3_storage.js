@@ -1,4 +1,5 @@
 const { Web3Storage, File } = require( 'web3.storage' )
+const { Buffer } = require( 'buffer' )
 const functions = require( 'firebase-functions' )
 const { web3 } = functions.config()
 const client = new Web3Storage( { token: web3.storage_api_token } )
@@ -13,6 +14,7 @@ exports.upload_file_to_web3 = async function( data, context ) {
 
         // Create blob out of string
         const file = new File( [ data_string ], name )
+        const size_in_bytes = Buffer.byteLength( data_string, 'uft8' )
         log( `file: `, file )
 
         // Store files to web3
@@ -38,7 +40,8 @@ exports.upload_file_to_web3 = async function( data, context ) {
             cid,
             name,
             ipfs_url: `https://${ cid }.ipfs.dweb.link`,
-            blockpaste_url: `https://blockspace.web.app/#/view/${ cid }`
+            blockpaste_url: `https://blockspace.web.app/#/view/${ cid }`,
+            size_in_bytes
         }
         log( `Readable format: `, readable_data )
 

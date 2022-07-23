@@ -10,6 +10,7 @@ const get_text_content_of_url = url => fetch( url ).then( response => response.t
 * @returns {Object[]} paste[] - Structure of a Paste object as received from firestore
 * @property {String} paste.cid - The IPFS cid of this paste
 * @property {String} paste.name - The user-specified name of this paste
+* @property {String} paste.size_in_bytes - The size of the content of this paste in Bytes
 * @property {String} paste.ipfs_url - The web2 url where this paste can be loaded from
 * @property {String} paste.blockpaste_url - The local url of this paste
 * @property {Number} paste.updated - The timestamp at which this paste was last updated
