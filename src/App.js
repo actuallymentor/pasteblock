@@ -7,6 +7,8 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 // Pages
 import HomePage from './components/pages/Home'
 import PublicArchive from './components/pages/Archive'
+import ViewPaste from './components/pages/ViewPaste'
+
 
 // Components
 import Loading from './components/molecules/Loading'
@@ -28,6 +30,7 @@ return <Theme>
 
 				<Route exact path='/' element={ <HomePage /> } />
 				<Route exact path='/archive' element={ <PublicArchive /> } />
+				<Route exact path='/view/:cid' element={ <ViewPaste /> } />
 
 			</Routes>
 

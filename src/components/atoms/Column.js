@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export default styled.div`
 	padding: 0;
 	display: flex;
+	flex-grow: 1;
 	flex-direction: ${ ( { direction } ) => direction || 'column' };
 	width: ${ ( { width } ) => width || '100%' };
 	height: ${ ( { height } ) => height || 'initial' };
