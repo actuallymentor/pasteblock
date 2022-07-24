@@ -4,7 +4,7 @@ export default styled.textarea`
 	color: ${ ( { theme } ) => theme.colors.textarea };
 	background: ${ ( { theme } ) => theme.colors.textareabg };
 	width: ${ ( { width } ) => width || '100%' };
-	min-height: 300px;
+	min-height: 50vh;
 	min-width: 100%;
 	padding: .5rem .75rem;
 	border: 1px solid ${ ( { theme } ) => theme.colors.areaborder };

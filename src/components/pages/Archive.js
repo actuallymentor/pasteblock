@@ -6,7 +6,7 @@ import Footer from '../organisms/Footer'
 import Section from '../atoms/Section'
 
 import { A } from '../atoms/Text'
-import { Table, Row, Th, Td } from '../atoms/Table'
+import { Table, TableHead, TableBody, Row, Th, Td } from '../atoms/Table'
 import Img from '../atoms/Image'
 import IpfsLogo from '../assets/ipfs.svg'
 
@@ -41,7 +41,7 @@ function Archive() {
 				{ relativeDays( paste.updated ) }
 			</Td>
 			<Td>
-				{ paste.size_in_bytes } kb
+				{ paste.size_in_bytes } bytes
 			</Td>
 		</Row>
 	))
@@ -56,13 +56,19 @@ function Archive() {
 
 					<Table>
 
-						<Row>
-							<Th>Name/Title</Th>
-							<Th>Posted</Th>
-							<Th>Size</Th>
-						</Row>
+						<TableHead>
+							<Row>
+								<Th>Name/Title</Th>
+								<Th>Posted</Th>
+								<Th>Size</Th>
+							</Row>
+						</TableHead>
 
-						<TableFill />
+						<TableBody>
+							<TableFill />
+						</TableBody>
+
+						
 
 					</Table>
 
