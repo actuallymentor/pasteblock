@@ -19,6 +19,8 @@ const theme = {
         btn_alt_bg_h: '#45B090',
         btn_alt_bg_a: '#33D6A4',
 		btn_alt_text: '#5FC5A6',
+		output_bg: '#F4F5FC',
+		output_text: '#6B6B6B',
 		primary: '#282c34',
 		accent: 'rgb( 97, 218, 251 )',
 		hint: 'rgba( 0, 0, 0, .4 )',

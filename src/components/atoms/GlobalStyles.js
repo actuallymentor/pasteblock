@@ -31,14 +31,6 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Fira Code', 'Helvetica Neue', sans-serif;
     }
 
-    code span {
-        font-size: .7rem;
-    }
-
-    pre {
-        border-radius: 6px;
-    }
-
     mark {
         color: white;
         background-color: ${ ( { theme } ) => theme.colors.highlight };
