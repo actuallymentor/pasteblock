@@ -41,7 +41,7 @@ function Archive() {
 				{ relativeDays( paste.updated ) }
 			</Td>
 			<Td>
-				{ paste.size_in_bytes } bytes
+				{ humanFileSize( paste.size_in_bytes ) }
 			</Td>
 		</Row>
 	))
