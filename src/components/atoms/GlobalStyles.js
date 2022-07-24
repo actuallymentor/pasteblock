@@ -14,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background: ${ ( { theme } ) => theme.colors.background };
-        --wrapper-size: 1040px;
+        --wrapper-size: 1340px;
         --header-height: 90px;
     }
 
