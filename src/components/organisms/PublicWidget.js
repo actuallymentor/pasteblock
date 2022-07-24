@@ -1,5 +1,4 @@
 import { useRecentPastes } from '../../hooks/pastes'
-
 import { humanFileSize } from '../../hooks/sizes'
 
 import { WidgetContainer, PasteItem } from '../atoms/WidgetContainer'

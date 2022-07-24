@@ -1,4 +1,5 @@
 import { useRecentPastes } from '../../hooks/pastes'
+import { humanFileSize } from '../../hooks/sizes'
 
 import Header from '../organisms/Header'
 import Main from '../atoms/Main'
