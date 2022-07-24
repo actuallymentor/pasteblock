@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
         --wrapper-padding-main: 2.5rem;
         --wrapper-padding: 1rem;
         --header-height: 90px;
-        @media (max-width: 600px) {
+        @media only screen and (max-width: 600px) {
             --wrapper-padding: .75rem;
             --wrapper-padding-main: 1rem;
         }
