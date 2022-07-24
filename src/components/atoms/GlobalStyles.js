@@ -13,29 +13,9 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background: var(--color-background);
-        --color-background: #FFFFFF;
-        --color-text: #1F2023;
-        --color-textarea: ;
-        --color-textareabg: #FFFFFF;
-        --color-areaborder: #D9DBE9;
-        --color-highlight: #5666F6;
-        --color-btn-bg: #5FC5A6;
-        --color-btn-bg-h: #45B090;
-        --color-btn-bg-a: #33D6A4;
-        --color-btn-text: #FFFFFF;
+        background: ${ ( { theme } ) => theme.colors.background };
         --wrapper-size: 1040px;
         --header-height: 90px;
-    }
-    @media (prefers-color-scheme: dark) {
-        body {
-            --color-background: #161616;
-            --color-text: #EFEFEF;
-            --color-textarea: #999999;
-            --color-textareabg: #202020;
-            --color-areaborder: #2B2B2B;
-            --color-highlight: #5666F6;
-        }
     }
 
     html {
@@ -49,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
 
     mark {
         color: white;
-        background-color: var(--color-highlight);
+        background-color: ${ ( { theme } ) => theme.colors.highlight };
         line-height: 1.2;
     }
 

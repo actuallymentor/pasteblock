@@ -4,16 +4,16 @@ export default styled.button`
 	padding:  .5rem .625rem;
 	margin: ${ ( { margin } ) => margin || '.5rem 0' };
 	border: ${ ( { color='text', theme } ) => theme.colors[ color ] || '2px solid grey' };
-	color: ${ ( { color='text_light', theme } ) => theme.colors[ color ] || 'var(--color-btn-text);' };
+	color: ${ ( { theme } ) => theme.colors.btn_text };
 	font-size: 1em;
 	font-weight: 600;
-	background: ${ ( { background='none' } ) => 'var(--color-btn-bg);' };
+	background: ${ ( { theme } ) => theme.colors.btn_bg };
 	border-radius: ${ ( { radius } ) => radius || '6px' };
 	&:hover {
 		cursor: pointer;
-		background: var(--color-btn-bg-h);
+		background: ${ ( { theme } ) => theme.colors.btn_bg_h };
 	}
 	&:active {
-		background: var(--color-btn-bg-a);
+		background: ${ ( { theme } ) => theme.colors.btn_bg_a };
 	}
 `

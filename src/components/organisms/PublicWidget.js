@@ -1,7 +1,8 @@
 import { useRecentPastes } from '../../hooks/pastes'
 
-import { Text } from '../atoms/Text'
+import { Text, A, StyledLink } from '../atoms/Text'
 import { Ul, Li } from '../atoms/List'
+import IpfsLogo from '../assets/ipfs.svg'
 
 export default function PublicWidget() {
 
@@ -21,9 +22,8 @@ export default function PublicWidget() {
 	const ten_most_recent = useRecentPastes( 10 )
 	const ListTag = () => ten_most_recent.map( ( paste, index ) => (
 		<Li key={ index }>
-			{ paste.name }
-			<div> syntax? | { relativeDays( paste.updated ) } | ? kb </div>
-			<span>{ paste.cid }</span>
+			<A href={ `#/view/${ paste.cid}` }>{ paste.name }</A> <A href={ paste.ipfs_url } target='_blank'><img width='15px' height='15px' src={ IpfsLogo } /></A>
+			<div> { relativeDays( paste.updated ) } | { paste.size_in_bytes } kb </div>
 		</Li>
 	))
 
@@ -35,7 +35,9 @@ export default function PublicWidget() {
 			<ListTag />
 		</Ul>
 
-
+		{/* <StyledLink to='/archive'>
+			Show all Public Blocks
+		</StyledLink> */}
 
 	</div>
 	
