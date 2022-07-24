@@ -6,6 +6,7 @@ export const Ul = styled.ul`
 `
 
 export const Li = styled.li`
+	margin: 0;
 	font-size: 1rem;
 	color: ${ ( { theme } ) => theme.colors.text };
 	div {
