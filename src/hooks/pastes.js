@@ -10,6 +10,7 @@ const get_text_content_of_url = url => fetch( url ).then( response => response.t
 * @returns {Object[]} paste[] - Structure of a Paste object as received from firestore
 * @property {String} paste.cid - The IPFS cid of this paste
 * @property {String} paste.name - The user-specified name of this paste
+* @property {String} paste.size_in_bytes - The size of the content of this paste in Bytes
 * @property {String} paste.ipfs_url - The web2 url where this paste can be loaded from
 * @property {String} paste.blockpaste_url - The local url of this paste
 * @property {Number} paste.updated - The timestamp at which this paste was last updated
@@ -45,6 +46,7 @@ export function useRecentPastes( limit=5 ) {
 /**
 * Listen to single paste
 * @param {string} cid - The cid of the paste (which is also our internal reference)
+* @param {Boolean} metadata_only - whether to load only the metadata or also the content, setting to false will load the paste content too
 * @returns {Object} paste - Structure of a Paste object as received from firestore
 * @property {String} paste.cid - The IPFS cid of this paste
 * @property {String} paste.name - The user-specified name of this paste
@@ -54,7 +56,7 @@ export function useRecentPastes( limit=5 ) {
 * @property {String} paste.updated_human - The human readable timestamp at which this paste was updated
 * @property {Function} paste.get - Asynchronous function that gets the text content from the ipfs_url
 */
-export function usePaste( cid ) {
+export function usePaste( cid, metadata_only=true ) {
 
     const [ paste, set_paste] = useState(  )
 
@@ -74,6 +76,37 @@ export function usePaste( cid ) {
 
     }, [ cid ] )
 
+    // Get the paste content
+    useEffect( (  ) => {
+
+        // If this is a metadata-only request, exit now
+        if( metadata_only ) return
+
+        /* ///////////////////////////////
+        // Get the paste data, but only after the metadata loaded */
+        if( !paste?.cid ) return log( `No paste metadata yet, waiting with fetch` )
+        let cancelled = false;
+    
+        ( async () => {
+    
+            try {
+    
+                const paste_content = await paste.get()
+                log( `Received paste content: `, paste_content )
+                if( !cancelled ) set_paste( prev => ( { ...prev, paste_content } ) )
+    
+            } catch( e ) {
+                log( `Error retreiving paste content: `, e )
+                alert( `Error getting content of paste ${ cid.slice( 0, 5 ) }: `, e.message )
+            }
+    
+        } )( )
+    
+        return () => cancelled = true
+        
+    }, [ paste?.cid, metadata_only ] )
+
+    // Return hook data with logging
     log( `usePaste hook ${ cid } updated: `, paste )
     return paste
 

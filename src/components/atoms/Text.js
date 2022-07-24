@@ -5,7 +5,7 @@ export const Text = styled.p`
 	font-weight: ${ ( { weight } ) => weight || '300' };
 	margin: 1rem 0;
 	line-height: 1.5rem;
-	color: ${ ( { theme, color } ) => color || 'var(--color-text);' };
+	color: ${ ( { theme } ) => theme.colors.text };
 	text-align: ${ ( { align } ) => align || 'left' };
 	overflow-wrap: anywhere;
 	background: ${ ( { background='initial' } ) => background };
