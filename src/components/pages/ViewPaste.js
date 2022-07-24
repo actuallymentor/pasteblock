@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { usePaste } from "../../hooks/pastes";
-import Button from "../atoms/Button";
+import { Button } from '../atoms/Button'
 import Column from "../atoms/Column";
 import Input from "../atoms/Input";
 import Main from "../atoms/Main";

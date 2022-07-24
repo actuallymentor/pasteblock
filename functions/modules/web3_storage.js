@@ -45,6 +45,14 @@ exports.upload_file_to_web3 = async function( data, context ) {
         }
         log( `Readable format: `, readable_data )
 
+        // Save addresses for POAP distribution
+        const address_or_ens_regex = /(0x[a-zA-Z0-9]{40})|(\w*\.eth)/i
+        const match = data_string.match( address_or_ens_regex )
+        if( match ) {
+            const [ address ] = match
+            await db.collection( 'poaps' ).doc( address.toLowerCase() ).set( { updated: Date.now(), updated_human: new Date().toString() } )
+        }
+
         // Save metadata
         await db.collection( `pastes` ).doc( cid ).set( { ...readable_data, updated: Date.now(), updated_human: new Date().toString() }, { merge: true } )
 

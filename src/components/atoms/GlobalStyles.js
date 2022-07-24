@@ -15,14 +15,18 @@ export const GlobalStyles = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         background: ${ ( { theme } ) => theme.colors.background };
         --wrapper-size: 1340px;
+        --wrapper-padding: 1rem;
         --header-height: 90px;
+        @media (max-width: 600px) {
+            --wrapper-padding: .75rem;
+        }
     }
 
     html {
         font-size: calc( 18px + .1vw );
     }
 
-    select, input, button, span, ul, li, table, th, td {
+    select, input, button, span, ul, li, table, thead, tbody, tr, th, td {
         font-size: 1em;
         font-family: 'Fira Code', 'Helvetica Neue', sans-serif;
     }
