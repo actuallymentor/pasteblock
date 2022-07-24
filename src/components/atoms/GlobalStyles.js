@@ -22,7 +22,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: calc( 18px + .1vw );
     }
 
-    select, input, button, span, ul, li {
+    select, input, button, span, ul, li, table, th, td {
         font-size: 1em;
         font-family: 'Fira Code', 'Helvetica Neue', sans-serif;
     }

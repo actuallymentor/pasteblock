@@ -5,17 +5,10 @@ import Main from '../atoms/Main'
 import Footer from '../organisms/Footer'
 import Section from '../atoms/Section'
 
-import { Text, A } from '../atoms/Text'
-import { Ul, Li } from '../atoms/List'
+import { A } from '../atoms/Text'
+import { Table, Row, Th, Td } from '../atoms/Table'
+import Img from '../atoms/Image'
 import IpfsLogo from '../assets/ipfs.svg'
-
-import Column from '../atoms/Column'
-import Button from '../atoms/Button'
-import Input from '../atoms/Input'
-import TextArea from '../atoms/TextArea'
-import PublicWidget from '../organisms/PublicWidget'
-
-import { useNavigate } from 'react-router-dom'
 
 function Archive() {
 
@@ -33,13 +26,24 @@ function Archive() {
 
 	const ten_most_recent = useRecentPastes( 50 )
 
-	const ListTag = () => ten_most_recent.map( ( paste, index ) => (
-		<Li key={ index }>
-			<A href={ `#/view/${ paste.cid}` }>{ paste.name }</A> <A href={ paste.ipfs_url } target='_blank'><img width='15px' height='15px' src={ IpfsLogo } /></A>
-			
-			<div> { relativeDays( paste.updated ) } | { paste.size_in_bytes } kb </div>
-			<span>{ paste.cid }</span>
-		</Li>
+	const TableFill = () => ten_most_recent.map( ( paste, index ) => (
+		<Row key={ index }>
+			<Td>
+				<A href={ `#/view/${ paste.cid}` }>
+					{ paste.name }
+				</A>
+
+				<A href={ paste.ipfs_url } target='_blank'>
+					<Img width='15px' height='15px' src={ IpfsLogo } />
+				</A>
+			</Td>
+			<Td>
+				{ relativeDays( paste.updated ) }
+			</Td>
+			<Td>
+				{ paste.size_in_bytes } kb
+			</Td>
+		</Row>
 	))
 
 	return (
@@ -48,11 +52,19 @@ function Archive() {
 
 			<Main justify='center' align='flex-start' direction='row'>
 
-				<Section justify='flex-start' direction='row' width='66%'>
+				<Section justify='flex-start' direction='row' width='100%'>
 
-					<Ul>
-						<ListTag />
-					</Ul>
+					<Table>
+
+						<Row>
+							<Th>Name/Title</Th>
+							<Th>Posted</Th>
+							<Th>Size</Th>
+						</Row>
+
+						<TableFill />
+
+					</Table>
 
 				</Section>
 

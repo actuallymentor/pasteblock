@@ -35,9 +35,9 @@ export default function PublicWidget() {
 			<ListTag />
 		</Ul>
 
-		{/* <StyledLink to='/archive'>
+		<StyledLink to='/archive'>
 			Show all Public Blocks
-		</StyledLink> */}
+		</StyledLink>
 
 	</div>
 	
