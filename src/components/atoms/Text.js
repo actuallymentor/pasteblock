@@ -29,9 +29,10 @@ export const A = styled.a`
 
 export const StyledLink = styled(Link)`
     margin: 10px;
-    color: ${ ( { theme } ) => theme.colors.text };
-    font-size: 1.125rem;
+    color: ${ ( { theme } ) => theme.colors.btn_bg };
+    font-size: .75em;
     text-decoration: none;
+	text-align: ${ ( { align } ) => align || 'left' };
     &:hover, &:focus {
         color: ${ ( { theme } ) => theme.colors.btn_bg_h };
     }
@@ -39,7 +40,6 @@ export const StyledLink = styled(Link)`
         color: ${ ( { theme } ) => theme.colors.btn_bg_a };
     };
 `
-
 
 export const H1 = styled.h1`
 	font-size: 1rem;

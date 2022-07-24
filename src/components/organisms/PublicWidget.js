@@ -1,5 +1,6 @@
 import { useRecentPastes } from '../../hooks/pastes'
 
+import { WidgetContainer } from '../atoms/WidgetContainer'
 import { Text, A, StyledLink } from '../atoms/Text'
 import { Ul, Li } from '../atoms/List'
 import IpfsLogo from '../assets/ipfs.svg'
@@ -27,7 +28,7 @@ export default function PublicWidget() {
 		</Li>
 	))
 
-	return ( <div>
+	return ( <WidgetContainer>
 		
 		<Text weight='600'>Latest Public Blocks</Text>
 
@@ -35,11 +36,11 @@ export default function PublicWidget() {
 			<ListTag />
 		</Ul>
 
-		<StyledLink to='/archive'>
-			Show all Public Blocks
+		<StyledLink to='/archive' align='center'>
+			View All Public Blocks
 		</StyledLink>
 
-	</div>
+	</WidgetContainer>
 	
 
 		
