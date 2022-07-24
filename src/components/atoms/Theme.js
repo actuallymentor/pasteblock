@@ -4,9 +4,17 @@ import { log } from '../../modules/helpers'
 
 const theme = {
 	colors: {
-		text: '#141735',
+		text: '#1F2023',
 		text_light: 'white',
 		background: '#FFFFFF',
+		textarea: '#999999',
+		textareabg: '#FFFFFF',
+		areaborder: '#D9DBE9',
+		highlight: '#5666F6',
+		btn_bg: '#5FC5A6',
+        btn_bg_h: '#45B090',
+        btn_bg_a: '#33D6A4',
+		btn_text: '#FFFFFF',
 		primary: '#282c34',
 		accent: 'rgb( 97, 218, 251 )',
 		hint: 'rgba( 0, 0, 0, .4 )',
@@ -16,9 +24,17 @@ const theme = {
 
 const theme_dark = {
 	colors: {
-		text: 'rgb( 255, 255, 255 )',
+		text: '#EFEFEF',
 		text_light: 'white',
-		background: '#FFFFFF',
+		background: '#161616',
+		textarea: '#999999',
+		textareabg: '#202020',
+		areaborder: '#2B2B2B',
+		highlight: '#5666F6',
+		btn_bg: '#5FC5A6',
+        btn_bg_h: '#45B090',
+        btn_bg_a: '#33D6A4',
+		btn_text: '#FFFFFF',
 		primary: '#282c34',
 		accent: 'rgb( 97, 218, 251 )',
 		hint: 'rgba( 0, 0, 0, .4 )',

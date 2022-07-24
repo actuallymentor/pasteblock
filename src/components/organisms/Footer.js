@@ -8,12 +8,12 @@ import { Text } from '../atoms/Text'
 import { NavbarContainer, NavbarLinkContainer, NavbarLink } from '../atoms/Navbar'
 
 const Footer = styled.footer`
-	position: absolute;
+	/* position: absolute;
 	bottom: 0;
 	left: 0;
-    right: 0;
+    right: 0; */
 	width: 100%;
-    max-width: 1040px;
+    max-width: var(--wrapper-size);
 	padding: 0;
     margin: 0 auto;
     text-align: center;

@@ -5,6 +5,7 @@ import Column from "../atoms/Column";
 import Input from "../atoms/Input";
 import Main from "../atoms/Main";
 import Section from "../atoms/Section";
+import { H1 } from "../atoms/Text";
 import TextArea from "../atoms/TextArea";
 import Header from "../organisms/Header";
 import PublicWidget from "../organisms/PublicWidget";
@@ -30,7 +31,7 @@ export default function ViewPaste() {
 
 					<Column direction='row' justify='space-between'>
 
-						<Input placeholder={ `"${ paste?.name || `ipfs://${ cid.slice( 0, 5 ) }...` }" paste content:` }/>
+						<H1>{ `"${ paste?.name || `ipfs://${ cid.slice( 0, 5 ) }...` }" paste content:` }</H1>
 
 					</Column>
 
