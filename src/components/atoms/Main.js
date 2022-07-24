@@ -17,7 +17,7 @@ export default styled.main`
 			width: 100%;
 			margin-top: 0;
 			margin-bottom: 0;
-			apdding-bottom: 0;
+			padding-bottom: 0;
 		}
 	}
 	
