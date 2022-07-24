@@ -29,7 +29,7 @@ export default function ViewPaste() {
 
         <Main justify='center' align='flex-start' direction='row'>
 
-				<Section justify='flex-start' direction='row' width='66%'>
+				<Section justify='flex-start' direction='row' width='75%'>
 
 					<Column direction='row' justify='space-between'>
 
@@ -65,7 +65,7 @@ export default function ViewPaste() {
 
 				</Section>
 
-				<Section justify='center' direction='row' width='33%'>
+				<Section justify='center' direction='row' width='25%'>
 
 					<PublicWidget/>
 

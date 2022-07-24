@@ -15,10 +15,12 @@ export const GlobalStyles = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         background: ${ ( { theme } ) => theme.colors.background };
         --wrapper-size: 1340px;
+        --wrapper-padding-main: 2.5rem;
         --wrapper-padding: 1rem;
         --header-height: 90px;
         @media (max-width: 600px) {
             --wrapper-padding: .75rem;
+            --wrapper-padding-main: 1rem;
         }
     }
 

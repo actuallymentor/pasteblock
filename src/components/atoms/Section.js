@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.section`
-	padding: ${ ( { padding } ) => padding || '1rem var(--wrapper-padding)' };
+	padding: ${ ( { padding } ) => padding || '1rem var(--wrapper-padding-main)' };
 	margin: ${ ( { margin } ) => margin || '1rem 0' };
 	display: flex;
 	flex-direction: ${ ( { direction } ) => direction || 'column' };
