@@ -17,6 +17,7 @@ export default function ViewPaste() {
     const { cid } = useParams()
     const paste = usePaste( cid, false )
     const public_link = `https://blockpaste.web.app/#/view/${ cid }`
+	const ipfs_link = `ipfs://${ cid }`
 
     const clipboard = async text => {
 		await navigator.clipboard.writeText( text )
@@ -47,9 +48,9 @@ export default function ViewPaste() {
 								<OutputButton onClick={ () => clipboard( public_link ) }>
 									Copy share link
 								</OutputButton>
-								{/* <OutputButton onClick={ () => clipboard( public_link ) }>
-									Copy IPFS Hash
-								</OutputButton> */}
+								<OutputButton onClick={ () => clipboard( ipfs_link ) }>
+									Copy IPFS link
+								</OutputButton>
 							</OutputHead>
 
 							<SyntaxHighlighter showLineNumbers  language='javascript' style={ a11yDark }>
