@@ -6,6 +6,10 @@ export const WidgetContainer= styled.div`
     width: 100%;
     overflow: hidden;
 
+    ul {
+        margin-top: 0;
+    }
+
     li a {
         white-space: nowrap;
         overflow: hidden;

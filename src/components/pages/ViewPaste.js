@@ -4,12 +4,11 @@ import { humanFileSize } from '../../hooks/sizes'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-import { Button } from '../atoms/Button'
 import Column from '../atoms/Column';
 import Main from '../atoms/Main';
 import Section from '../atoms/Section';
-import { H1 } from '../atoms/Text';
-import { OutputHead, OutputContainer } from '../atoms/OutputBox';
+import { Text, H1 } from '../atoms/Text';
+import { OutputHead, OutputContainer, OutputButton } from '../atoms/OutputBox';
 import Header from '../organisms/Header';
 import PublicWidget from '../organisms/PublicWidget';
 
@@ -43,7 +42,14 @@ export default function ViewPaste() {
 						<OutputContainer>
 
 							<OutputHead>
-								{/* <Text>{ humanFileSize( paste.size_in_bytes ) } </Text>		 */}
+								{/* <Text>{ humanFileSize( `${ paste.size_in_bytes }` ) } </Text>		 */}
+								{/* { size }	 */}
+								<OutputButton onClick={ () => clipboard( public_link ) }>
+									Copy share link
+								</OutputButton>
+								{/* <OutputButton onClick={ () => clipboard( public_link ) }>
+									Copy IPFS Hash
+								</OutputButton> */}
 							</OutputHead>
 
 							<SyntaxHighlighter showLineNumbers  language='javascript' style={ a11yDark }>
@@ -56,13 +62,6 @@ export default function ViewPaste() {
 						{/* <TextArea value={ paste?.paste_content }/> */}
 
 					</Column>
-
-                    <Column direction='row' justify='space-between'>
-
-                        <Button onClick={ () => clipboard( public_link ) } margin='1rem 0'>Copy sharing link to clipboard</Button>
-
-					</Column>
-
 
 				</Section>
 
