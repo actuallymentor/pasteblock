@@ -14,20 +14,23 @@ const Input = styled.div`
 	}
 
 	& select, input, & p {
-		color: var(--color-text);
 		padding: .5rem;
 		width: 100%;
 		font-weight: 600;
 		::placeholder {
-			color: var(--color-text);
+			${ ( { theme } ) => theme.colors.text };
 		}
 	}
 
+	& input {
+		color: ${ ( { theme } ) => theme.colors.highlight };
+	}
+
 	& select {
-		color: var(--color-text);
+		color: ${ ( { theme } ) => theme.colors.text };
 		padding: .5rem 1.5rem .5rem .5rem;
 		font-weight: 400;
-		border: 1px solid var(--color-areaborder);
+		border: 1px solid ${ ( { theme } ) => theme.colors.areaborder };
 		border-radius: ${ ( { radius } ) => radius || '6px' };
 		-webkit-appearance: none;
 		appearance: none;
@@ -36,11 +39,12 @@ const Input = styled.div`
 		background-repeat: no-repeat;
 		background-position: calc(100% - 8px) center;
 		::placeholder {
-			color: var(--color-text);
+			color: ${ ( { theme } ) => theme.colors.text };
 		}
 	}
 
 	p {
+		color: ${ ( { theme } ) => theme.colors.text };
 		font-size: .7rem;
 	}
 

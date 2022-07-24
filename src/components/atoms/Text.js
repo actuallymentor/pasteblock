@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { Link } from "react-router-dom"
+
 
 export const Text = styled.p`
 	font-size: 1rem;
@@ -15,7 +17,7 @@ export const A = styled.a`
 	font-size: 1rem;
 	margin: .2rem 0;
 	line-height: 1.5rem;
-	color: ${ ( { banner, theme } ) => banner ? theme.colors.primary_invert : theme.colors.text };
+	color: ${ ( { banner, theme } ) => banner ? theme.colors.primary_invert : theme.colors.highlight };
 	text-decoration: none;
 	// background: ${ ( { banner, theme } ) => banner ? theme.colors.primary : theme.colors.primary_invert };
 	padding: ${ ( { banner } ) => banner ? '.5rem 1rem' : 'initial' };
@@ -25,13 +27,27 @@ export const A = styled.a`
 	overflow-wrap: anywhere;
 `
 
+export const StyledLink = styled(Link)`
+    margin: 10px;
+    color: ${ ( { theme } ) => theme.colors.btn_bg };
+    font-size: .75em;
+    text-decoration: none;
+	text-align: ${ ( { align } ) => align || 'left' };
+    &:hover, &:focus {
+        color: ${ ( { theme } ) => theme.colors.btn_bg_h };
+    }
+    &:active {
+        color: ${ ( { theme } ) => theme.colors.btn_bg_a };
+    };
+`
+
 export const H1 = styled.h1`
-	font-size: 2.5rem;
+	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.2;
-	font-family: 'Comfortaa', cursive, sans-serif;
+	font-family: 'Fira Code', 'Helvetica Neue', sans-serif;
 	text-align: ${ ( { align } ) => align || 'left' };
-	color: ${ ( { theme, color } ) => color || theme.colors.primary };
+	color: ${ ( { theme, color } ) => color || theme.colors.text };
 	overflow-wrap: anywhere;
 `
 

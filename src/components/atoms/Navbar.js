@@ -12,13 +12,13 @@ export const NavbarLinkContainer = styled.div`
 
 export const NavbarLink = styled(Link)`
     margin: 10px;
-    color: var(--color-text);
+    color: ${ ( { theme } ) => theme.colors.text };
     font-size: 1.125rem;
     text-decoration: none;
     &:hover, &:focus {
-        color: var(--color-btn-bg);
+        color: ${ ( { theme } ) => theme.colors.btn_bg_h };
     }
     &:active {
-        color: var(--color-btn-bg);
+        color: ${ ( { theme } ) => theme.colors.btn_bg_a };
     };
 `

@@ -1,87 +1,76 @@
-import React, { useState, useReducer } from 'react'
-import { Web3Storage } from 'web3.storage'
+import { useRecentPastes } from '../../hooks/pastes'
 
-import Main from '../atoms/Main'
-import Section from '../atoms/Section'
-import Column from '../atoms/Column'
-import { OutputLink, Output } from '../atoms/Text'
-
-import '../../temp.css'
-import OutputBox from '../atoms/OutputBox'
 import Header from '../organisms/Header'
+import Main from '../atoms/Main'
+import Footer from '../organisms/Footer'
+import Section from '../atoms/Section'
 
-const token = process.env.REACT_APP_WEB3_STORAGE_API
+import { A } from '../atoms/Text'
+import { Table, Row, Th, Td } from '../atoms/Table'
+import Img from '../atoms/Image'
+import IpfsLogo from '../assets/ipfs.svg'
 
 function Archive() {
 
-	const [messages, showMessage] = useReducer((msgs, m) => msgs.concat(m), [])
-	const [files, setFiles] = useState([])
-
-	async function handleSubmit (event) {
-
-		// don't reload the page!
-		event.preventDefault()
-
-		showMessage('> 📦 creating web3.storage client')
-		const client = new Web3Storage({ token })
-
-		showMessage('> 🤖 chunking and hashing the files (in your browser!) to calculate the Content ID')
-		const cid = await client.put(files, {
-
-			onRootCidReady: localCid => {
-				showMessage(`> 🔑 locally calculated Content ID: ${localCid} `)
-				showMessage('> 📡 sending files to web3.storage ')
-			},
-			onStoredChunk: bytes => showMessage(`> 🛰 sent ${bytes.toLocaleString()} bytes to web3.storage`)
-			
+	function relativeDays(timestamp) {
+		const rtf = new Intl.RelativeTimeFormat('en', {
+			numeric: 'auto',
 		})
-		showMessage(`> ✅ web3.storage now hosting ${cid}`)
-		showLink(`https://dweb.link/ipfs/${cid}`)
-
-		showMessage('> 📡 fetching the list of all unique uploads on this account')
-		let totalBytes = 0
-		for await (const upload of client.list()) {
-			showMessage(`> 📄 ${upload.cid}  ${upload.name}`)
-			totalBytes += upload.dagSize || 0
-		}
-		showMessage(`> ⁂ ${totalBytes.toLocaleString()} bytes stored!`)
+		const oneDayInMs = 1000 * 60 * 60 * 24;
+		const daysDifference = Math.round(
+			(timestamp - new Date().getTime()) / oneDayInMs,
+		);
+	
+		return rtf.format(daysDifference, 'day');
 	}
 
-	function showLink (url) {
-		showMessage(<span>&gt; 🔗 <OutputLink href={url}>{url}</OutputLink></span>)
-	}
+	const ten_most_recent = useRecentPastes( 50 )
+
+	const TableFill = () => ten_most_recent.map( ( paste, index ) => (
+		<Row key={ index }>
+			<Td>
+				<A href={ `#/view/${ paste.cid}` }>
+					{ paste.name }
+				</A>
+
+				<A href={ paste.ipfs_url } target='_blank'>
+					<Img width='15px' height='15px' src={ IpfsLogo } />
+				</A>
+			</Td>
+			<Td>
+				{ relativeDays( paste.updated ) }
+			</Td>
+			<Td>
+				{ paste.size_in_bytes } kb
+			</Td>
+		</Row>
+	))
 
 	return (
 		<>
-
 			<Header/>
-			
-			<Main justify='flex-start'>
 
-				<Section width='600px' height='600px' justify='space-around' direction='row'>
+			<Main justify='center' align='flex-start' direction='row'>
 
-					<Column width='600px' height='400px' align='center'>
+				<Section justify='flex-start' direction='row' width='100%'>
 
-						<form id='upload-form' onSubmit={handleSubmit}>
-							<label htmlFor='filepicker'>Pick files to store</label>
-							<input type='file' id='filepicker' name='fileList' onChange={e => setFiles(e.target.files)} multiple required />
-							<input type='submit' value='Submit' id='submit' />
-						</form>
+					<Table>
 
-					</Column>
+						<Row>
+							<Th>Name/Title</Th>
+							<Th>Posted</Th>
+							<Th>Size</Th>
+						</Row>
 
-					<Column align='flex-start'>
+						<TableFill />
 
-						<OutputBox maxHeight='300px' >
-							<Output>&gt; ⁂ waiting for form submission...</Output>
-							{messages.map((m, i) => <Output key={m + i}>{m}</Output>)}
-						</OutputBox>
-
-					</Column>
+					</Table>
 
 				</Section>
 
 			</Main>
+
+			<Footer background=''/>
 
 		</>
 	)

@@ -13,39 +13,23 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background: var(--color-background);
-        --color-background: #FFFFFF;
-        --color-text: #1F2023;
-        --color-textarea: ;
-        --color-textareabg: #FFFFFF;
-        --color-areaborder: #D9DBE9;
-        --color-highlight: #5666F6;
-        --color-btn-bg: #5FC5A6;
-        --color-btn-text : #FFFFFF;
-    }
-    @media (prefers-color-scheme: dark) {
-        body {
-            --color-background: #161616;
-            --color-text: #EFEFEF;
-            --color-textarea: #999999;
-            --color-textareabg: #202020;
-            --color-areaborder: #2B2B2B;
-            --color-highlight: #5666F6;
-        }
+        background: ${ ( { theme } ) => theme.colors.background };
+        --wrapper-size: 1340px;
+        --header-height: 90px;
     }
 
     html {
         font-size: calc( 18px + .1vw );
     }
 
-    select, input, button, span {
+    select, input, button, span, ul, li, table, th, td {
         font-size: 1em;
         font-family: 'Fira Code', 'Helvetica Neue', sans-serif;
     }
 
     mark {
         color: white;
-        background-color: var(--color-highlight);
+        background-color: ${ ( { theme } ) => theme.colors.highlight };
         line-height: 1.2;
     }
 
