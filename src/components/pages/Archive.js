@@ -1,4 +1,5 @@
 import { useRecentPastes } from '../../hooks/pastes'
+import { humanFileSize } from '../../hooks/sizes'
 
 import Header from '../organisms/Header'
 import Main from '../atoms/Main'
@@ -41,7 +42,7 @@ function Archive() {
 				{ relativeDays( paste.updated ) }
 			</Td>
 			<Td>
-				{ paste.size_in_bytes } bytes
+				{ humanFileSize( paste.size_in_bytes ) }
 			</Td>
 		</Row>
 	))

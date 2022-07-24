@@ -1,14 +1,16 @@
-import { useParams } from "react-router-dom";
-import { usePaste } from "../../hooks/pastes";
-import { Button } from '../atoms/Button'
-import Column from "../atoms/Column";
-import Input from "../atoms/Input";
-import Main from "../atoms/Main";
-import Section from "../atoms/Section";
-import { H1 } from "../atoms/Text";
-import TextArea from "../atoms/TextArea";
-import Header from "../organisms/Header";
-import PublicWidget from "../organisms/PublicWidget";
+import { useParams } from 'react-router-dom';
+import { usePaste } from '../../hooks/pastes';
+import { humanFileSize } from '../../hooks/sizes'
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+import Column from '../atoms/Column';
+import Main from '../atoms/Main';
+import Section from '../atoms/Section';
+import { Text, H1 } from '../atoms/Text';
+import { OutputHead, OutputContainer, OutputButton } from '../atoms/OutputBox';
+import Header from '../organisms/Header';
+import PublicWidget from '../organisms/PublicWidget';
 
 export default function ViewPaste() {
 
@@ -31,22 +33,35 @@ export default function ViewPaste() {
 
 					<Column direction='row' justify='space-between'>
 
-						<H1>{ `"${ paste?.name || `ipfs://${ cid.slice( 0, 5 ) }...` }" paste content:` }</H1>
+						<H1>{ `'${ paste?.name || `ipfs://${ cid.slice( 0, 5 ) }...` }' paste content:` }</H1>
 
 					</Column>
 
 					<Column direction='row' align='flex-start'>
 
-						<TextArea value={ paste?.paste_content }/>
+						<OutputContainer>
+
+							<OutputHead>
+								{/* <Text>{ humanFileSize( `${ paste.size_in_bytes }` ) } </Text>		 */}
+								{/* { size }	 */}
+								<OutputButton onClick={ () => clipboard( public_link ) }>
+									Copy share link
+								</OutputButton>
+								{/* <OutputButton onClick={ () => clipboard( public_link ) }>
+									Copy IPFS Hash
+								</OutputButton> */}
+							</OutputHead>
+
+							<SyntaxHighlighter showLineNumbers  language='javascript' style={ a11yDark }>
+								{ paste?.paste_content }
+							</SyntaxHighlighter>
+						
+						</OutputContainer>
+
+						
+						{/* <TextArea value={ paste?.paste_content }/> */}
 
 					</Column>
-
-                    <Column direction='row' justify='space-between'>
-
-                        <Button onClick={ () => clipboard( public_link ) } margin="1rem 0">Copy sharing link to clipboard</Button>
-
-					</Column>
-
 
 				</Section>
 
