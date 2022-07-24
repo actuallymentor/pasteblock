@@ -1,5 +1,7 @@
 import { useRecentPastes } from '../../hooks/pastes'
 
+import { humanFileSize } from '../../hooks/sizes'
+
 import { WidgetContainer, PasteItem } from '../atoms/WidgetContainer'
 import { Text, A, StyledLink } from '../atoms/Text'
 import { Ul, Li } from '../atoms/List'
@@ -24,7 +26,7 @@ export default function PublicWidget() {
 	const ListTag = () => ten_most_recent.map( ( paste, index ) => (
 		<PasteItem key={ index }>
 			<A href={ `#/view/${ paste.cid}` }>{ paste.name }</A> <A href={ paste.ipfs_url } target='_blank'><img alt='IPFS file' width='13px' height='13px' src={ IpfsLogo } /></A>
-			<div> { relativeDays( paste.updated ) } | { paste.size_in_bytes } bytes </div>
+			<div> { relativeDays( paste.updated ) } | { humanFileSize( paste.size_in_bytes ) }</div>
 		</PasteItem>
 	))
 
