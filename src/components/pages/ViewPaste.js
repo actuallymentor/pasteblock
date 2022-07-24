@@ -1,5 +1,9 @@
 import { useParams } from "react-router-dom";
 import { usePaste } from "../../hooks/pastes";
+
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
 import { Button } from '../atoms/Button'
 import Column from "../atoms/Column";
 import Input from "../atoms/Input";
@@ -36,8 +40,12 @@ export default function ViewPaste() {
 					</Column>
 
 					<Column direction='row' align='flex-start'>
-
-						<TextArea value={ paste?.paste_content }/>
+						
+						<SyntaxHighlighter showLineNumbers  language="javascript" style={ a11yDark }>
+							{ paste?.paste_content }
+						</SyntaxHighlighter>
+						
+						{/* <TextArea value={ paste?.paste_content }/> */}
 
 					</Column>
 
