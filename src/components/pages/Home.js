@@ -4,7 +4,7 @@ import Main from '../atoms/Main'
 import Footer from '../organisms/Footer'
 import Section from '../atoms/Section'
 import Column from '../atoms/Column'
-import Button from '../atoms/Button'
+import { Button } from '../atoms/Button'
 import Input from '../atoms/Input'
 import TextArea from '../atoms/TextArea'
 import PublicWidget from '../organisms/PublicWidget'
@@ -48,7 +48,7 @@ function Home() {
 
 			<Main justify='center' align='flex-start' direction='row'>
 
-				<Section justify='flex-start' direction='row' width='66%'>
+				<Section justify='flex-start' direction='row' width='75%'>
 
 					<Column direction='row' justify='space-between'>
 
@@ -74,7 +74,7 @@ function Home() {
 
 				</Section>
 
-				<Section justify='center' direction='row' width='33%'>
+				<Section justify='flex-end' direction='row' width='25%'>
 
 					<PublicWidget/>
 
