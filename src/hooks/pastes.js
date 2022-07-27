@@ -12,7 +12,7 @@ const get_text_content_of_url = url => fetch( url ).then( response => response.t
 * @property {String} paste.name - The user-specified name of this paste
 * @property {String} paste.size_in_bytes - The size of the content of this paste in Bytes
 * @property {String} paste.ipfs_url - The web2 url where this paste can be loaded from
-* @property {String} paste.blockpaste_url - The local url of this paste
+* @property {String} paste.pasteblock_url - The local url of this paste
 * @property {Number} paste.updated - The timestamp at which this paste was last updated
 * @property {String} paste.updated_human - The human readable timestamp at which this paste was updated
 * @property {Function} paste.get - Asynchronous function that gets the text content from the ipfs_url
@@ -51,7 +51,7 @@ export function useRecentPastes( limit=5 ) {
 * @property {String} paste.cid - The IPFS cid of this paste
 * @property {String} paste.name - The user-specified name of this paste
 * @property {String} paste.ipfs_url - The web2 url where this paste can be loaded from
-* @property {String} paste.blockpaste_url - The local url of this paste
+* @property {String} paste.pasteblock_url - The local url of this paste
 * @property {Number} paste.updated - The timestamp at which this paste was last updated
 * @property {String} paste.updated_human - The human readable timestamp at which this paste was updated
 * @property {Function} paste.get - Asynchronous function that gets the text content from the ipfs_url
