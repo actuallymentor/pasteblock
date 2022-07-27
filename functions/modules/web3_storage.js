@@ -40,7 +40,7 @@ exports.upload_file_to_web3 = async function( data, context ) {
             cid,
             name,
             ipfs_url: `https://${ cid }.ipfs.dweb.link`,
-            blockpaste_url: `https://blockspace.web.app/#/view/${ cid }`,
+            blockpaste_url: `https://pasteblock.app/#/view/${ cid }`,
             size_in_bytes
         }
         log( `Readable format: `, readable_data )

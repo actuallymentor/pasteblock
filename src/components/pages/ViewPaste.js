@@ -1,15 +1,16 @@
-import { useParams } from 'react-router-dom';
-import { usePaste } from '../../hooks/pastes';
-import { humanFileSize } from '../../hooks/sizes'
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { useParams } from 'react-router-dom'
+import { usePaste } from '../../hooks/pastes'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
-import Column from '../atoms/Column';
-import Main from '../atoms/Main';
-import Section from '../atoms/Section';
-import { Text, H1 } from '../atoms/Text';
-import { OutputHead, OutputContainer, OutputButton } from '../atoms/OutputBox';
-import Header from '../organisms/Header';
+import Column from '../atoms/Column'
+import Header from '../organisms/Header'
+import Main from '../atoms/Main'
+import Footer from '../organisms/Footer'
+import Section from '../atoms/Section'
+import { H1 } from '../atoms/Text'
+import { OutputHead, OutputContainer, OutputButton } from '../atoms/OutputBox'
+
 import PublicWidget from '../organisms/PublicWidget';
 
 export default function ViewPaste() {
@@ -72,6 +73,8 @@ export default function ViewPaste() {
 
 				</Section>
         </Main>
+
+		<Footer/>
 
     </>
 }
