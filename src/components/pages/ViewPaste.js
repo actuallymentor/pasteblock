@@ -17,7 +17,7 @@ export default function ViewPaste() {
 
     const { cid } = useParams()
     const paste = usePaste( cid, false )
-    const public_link = `https://blockpaste.web.app/#/view/${ cid }`
+    const public_link = `https://pasteblock.app/#/view/${ cid }`
 	const ipfs_link = `ipfs://${ cid }`
 
     const clipboard = async text => {

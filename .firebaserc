@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "blockpaste",
-    "production": "blockpaste"
+    "default": "pasteblock-app",
+    "production": "pasteblock-app"
   }
 }

@@ -19,7 +19,7 @@ exports.upload_file_to_web3 = async function( data, context ) {
 
         // Store files to web3
         const root_cid = await client.put( [ file ], {
-            name: `${ Date.now() }_blockpaste_${ name }_${ new Date().toString() }`,
+            name: `${ Date.now() }_pasteblock_${ name }_${ new Date().toString() }`,
             maxRetries: 3
         } )
         log( `Upload success, root CID: `, root_cid )
@@ -40,7 +40,7 @@ exports.upload_file_to_web3 = async function( data, context ) {
             cid,
             name,
             ipfs_url: `https://${ cid }.ipfs.dweb.link`,
-            blockpaste_url: `https://pasteblock.app/#/view/${ cid }`,
+            pasteblock_url: `https://pasteblock.app/#/view/${ cid }`,
             size_in_bytes
         }
         log( `Readable format: `, readable_data )
