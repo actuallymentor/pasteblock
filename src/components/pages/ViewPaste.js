@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { usePaste } from '../../hooks/pastes'
+import { humanFileSize } from '../../hooks/sizes'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
@@ -8,22 +10,62 @@ import Header from '../organisms/Header'
 import Main from '../atoms/Main'
 import Footer from '../organisms/Footer'
 import Section from '../atoms/Section'
-import { H1 } from '../atoms/Text'
-import { OutputHead, OutputContainer, OutputButton } from '../atoms/OutputBox'
+import { Text, H1 } from '../atoms/Text'
+import { OutputHead, OutputContainer, OutputButton, OutputLanguage } from '../atoms/OutputBox'
 
 import PublicWidget from '../organisms/PublicWidget';
+import React from 'react'
 
 export default function ViewPaste() {
+
+	const [ codeLanguage, setCodeLanguage ] = useState( 'javascript' )
+	const langList = [
+		{
+			"label": "javascript",
+			"value": "javascript"
+		},
+		{
+		  "label": "css",
+		  "value": "css"
+		},
+		{
+		  "label": "json",
+		  "value": "json"
+		},
+		{
+		  "label": "markdown",
+		  "value": "markdown"
+		},
+		{
+		  "label": "php",
+		  "value": "php"
+		},
+		{
+		  "label": "python",
+		  "value": "python"
+		},
+		{
+		  "label": "plaintext",
+		  "value": "plaintext"
+		},
+		{
+		  "label": "shell",
+		  "value": "shell"
+		}
+	]
 
     const { cid } = useParams()
     const paste = usePaste( cid, false )
     const public_link = `https://pasteblock.app/#/view/${ cid }`
 	const ipfs_link = `ipfs://${ cid }`
+	const real_size = humanFileSize( paste?.size_in_bytes )
 
     const clipboard = async text => {
 		await navigator.clipboard.writeText( text )
 		alert( 'Copied to clipboard!' )
 	}
+
+	
 
     return <>
 
@@ -44,17 +86,23 @@ export default function ViewPaste() {
 						<OutputContainer>
 
 							<OutputHead>
-								{/* <Text>{ humanFileSize( `${ paste.size_in_bytes }` ) } </Text>		 */}
-								{/* { size }	 */}
-								<OutputButton onClick={ () => clipboard( public_link ) }>
-									Copy share link
-								</OutputButton>
-								<OutputButton onClick={ () => clipboard( ipfs_link ) }>
-									Copy IPFS link
-								</OutputButton>
+								<div>
+									<OutputLanguage id="code-language-switcher" type="dropdown" onChange={ ( { target } ) => setCodeLanguage( target.value ) } options={ langList } />
+									<Text>{ real_size }</Text>
+								</div>
+
+								<div>
+									<OutputButton onClick={ () => clipboard( public_link ) }>
+										Share link
+									</OutputButton>
+									<OutputButton onClick={ () => clipboard( ipfs_link ) }>
+										Raw
+									</OutputButton>
+								</div>
+
 							</OutputHead>
 
-							<SyntaxHighlighter showLineNumbers  language='javascript' style={ a11yDark }>
+							<SyntaxHighlighter showLineNumbers language={ codeLanguage } style={ a11yDark }>
 								{ paste?.paste_content }
 							</SyntaxHighlighter>
 						

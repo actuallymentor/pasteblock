@@ -6,7 +6,7 @@ const Input = styled.div`
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;
-	margin: .5rem 0;
+	margin: 0;
 	
 	& select, input, & p {
 		background: transparent;
@@ -27,17 +27,15 @@ const Input = styled.div`
 	}
 
 	& select {
-		color: ${ ( { theme } ) => theme.colors.text };
-		padding: .5rem 1.5rem .5rem .5rem;
+		color: ${ ( { theme } ) => theme.colors.btn_output_text };
+		background: ${ ( { theme } ) => theme.colors.btn_output_bg };
+		padding: .25rem;
+		font-size: .75em;
 		font-weight: 400;
 		border: 1px solid ${ ( { theme } ) => theme.colors.areaborder };
-		border-radius: ${ ( { radius } ) => radius || '6px' };
+		border-radius: ${ ( { radius } ) => radius || '2px' };
 		-webkit-appearance: none;
 		appearance: none;
-		background-image: url('/assets/img/chev-down.svg');
-		background-size: 12px;
-		background-repeat: no-repeat;
-		background-position: calc(100% - 8px) center;
 		::placeholder {
 			color: ${ ( { theme } ) => theme.colors.text };
 		}
