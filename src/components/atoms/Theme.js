@@ -26,6 +26,7 @@ const theme = {
 		output_bg: '#FFFFFF',
 		output_text: '#6B6B6B',
 		output_border: '#EBEDF6',
+		output_size: '#6B6B6B',
 		primary: '#282c34',
 		accent: 'rgb( 97, 218, 251 )',
 		hint: 'rgba( 0, 0, 0, .4 )',
@@ -57,7 +58,7 @@ const theme_dark = {
 		output_bg: '#202020',
 		output_text: '#DCDDDE',
 		output_border: '#2B2B2B',
-		
+		output_size: '#6B6B6B',
 		primary: '#282c34',
 		accent: 'rgb( 97, 218, 251 )',
 		hint: 'rgba( 0, 0, 0, .4 )',

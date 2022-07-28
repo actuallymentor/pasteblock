@@ -33,7 +33,7 @@ const Footer = styled.footer`
 export default ( { ...props } ) => <Footer>
 
 	<Text>
-        Created with love during HackFS 2022
+        Created with love during HackFS 2022 | Support us on pasteblock.eth
     </Text>
 
 </Footer>
