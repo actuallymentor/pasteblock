@@ -19,6 +19,7 @@ import React from 'react'
 export default function ViewPaste() {
 
 	const [ codeLanguage, setCodeLanguage ] = useState( 'javascript' )
+	
 	const langList = [
 		{
 			"label": "javascript",

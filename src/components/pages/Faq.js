@@ -10,16 +10,17 @@ import TextArea from '../atoms/TextArea'
 import PublicWidget from '../organisms/PublicWidget'
 
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Loading from '../molecules/Loading'
 import { upload_file_to_web3 } from '../../modules/firebase'
 import { log } from '../../modules/helpers'
 
-function Home() {
+
+function Faq() {
 	
-	const [ title, set_title] = useState( '' )
-	const [ content, set_content ] = useState( '' )
-	const [ loading, set_loading ] = useState( '' )
+	const [ title, set_title] = useState(  )
+	const [ content, set_content ] = useState(  )
+	const [ loading, set_loading ] = useState(  )
 	const navigate = useNavigate()
 
 	async function save_paste() {
@@ -74,7 +75,7 @@ function Home() {
 				</Section>
 
 				<Section justify='flex-end' direction='row' width='25%'>
-
+					
 					<PublicWidget/>
 
 				</Section>
@@ -88,4 +89,4 @@ function Home() {
 	)
 }
 
-export default Home
+export default Faq
