@@ -20,8 +20,8 @@ export default function PublicWidget() {
 		return rtf.format(daysDifference, 'day');
 	}
 
-	const ten_most_recent = useRecentPastes( 5 )
-	const ListTag = () => ten_most_recent.map( ( paste, index ) => (
+	const five_most_recent = useRecentPastes( 5 )
+	const ListTag = () => five_most_recent.map( ( paste, index ) => (
 		<PasteItem key={ index }>
 			<TitleContainer>
 				<A href={ `#/view/${ paste.cid}` }>{ paste.name }</A> <A href={ paste.ipfs_url } target='_blank'><img alt='IPFS file' width='13px' height='13px' src={ IpfsLogo } /></A>
