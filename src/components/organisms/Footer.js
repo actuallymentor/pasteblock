@@ -32,8 +32,10 @@ const Footer = styled.footer`
 
 export default ( { ...props } ) => <Footer>
 
-	<Text>
-        Created with love during HackFS 2022 | Support us on pasteblock.eth
+	<Text align='center'>
+        Created with love during HackFS 2022 
+        <br/>
+        Support us on pasteblock.eth
     </Text>
 
 </Footer>

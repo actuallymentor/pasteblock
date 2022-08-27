@@ -30,6 +30,7 @@ const Input = styled.div`
 		color: ${ ( { theme } ) => theme.colors.btn_output_text };
 		background: ${ ( { theme } ) => theme.colors.btn_output_bg };
 		padding: .25rem;
+		margin: 0;
 		font-size: .75em;
 		font-weight: 400;
 		border: 1px solid ${ ( { theme } ) => theme.colors.areaborder };

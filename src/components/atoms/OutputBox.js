@@ -5,14 +5,14 @@ export const OutputHead = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: ${ ( { padding } ) => padding || '.5rem' };
+    padding: ${ ( { padding } ) => padding || '.25rem' };
     margin: ${ ( { margin } ) => margin || '0' };
     color: ${ ( { theme } ) => theme.colors.output_text };
     background: ${ ( { theme } ) => theme.colors.output_bg };
     border-radius: 6px 6px 0px 0px;
     border: 1px solid ${ ( { theme } ) => theme.colors.output_border };
     box-shadow: 0px 5px 20px rgb(0 0 0 / 30%);
-    height: ${ ( { height } ) => height || '60px' };
+    height: ${ ( { height } ) => height || '50px' };
     width: ${ ( { width } ) => width || '100%' };
     max-height: ${ ( { maxHeight } ) => maxHeight || '100%' };
     overflow-y: scroll;
