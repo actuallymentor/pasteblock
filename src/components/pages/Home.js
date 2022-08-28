@@ -50,8 +50,6 @@ function Home() {
 
 	}
 
-	if( loading ) return <Loading message={ loading } />
-
 	return (
 		
 		<>
