@@ -13,47 +13,15 @@ import Section from '../atoms/Section'
 import { Text, H1 } from '../atoms/Text'
 import { OutputHead, OutputContainer, OutputButton, OutputLanguage } from '../atoms/OutputBox'
 
-import PublicWidget from '../organisms/PublicWidget';
-import React from 'react'
+import PublicWidget from '../organisms/PublicWidget'
+
+import supportedLanguages from '../assets/supportedLanguage' 
 
 export default function ViewPaste() {
 
 	const [ codeLanguage, setCodeLanguage ] = useState( 'javascript' )
 	
-	const langList = [
-		{
-			"label": "javascript",
-			"value": "javascript"
-		},
-		{
-		  "label": "css",
-		  "value": "css"
-		},
-		{
-		  "label": "json",
-		  "value": "json"
-		},
-		{
-		  "label": "markdown",
-		  "value": "markdown"
-		},
-		{
-		  "label": "php",
-		  "value": "php"
-		},
-		{
-		  "label": "python",
-		  "value": "python"
-		},
-		{
-		  "label": "plaintext",
-		  "value": "plaintext"
-		},
-		{
-		  "label": "shell",
-		  "value": "shell"
-		}
-	]
+	const langList = supportedLanguages
 
     const { cid } = useParams()
     const paste = usePaste( cid, false )
@@ -65,8 +33,6 @@ export default function ViewPaste() {
 		await navigator.clipboard.writeText( text )
 		alert( 'Copied to clipboard!' )
 	}
-
-	
 
     return <>
 
