@@ -39,8 +39,6 @@ function Faq() {
 
 	}
 
-	if( loading ) return <Loading message={ loading } />
-
 	return (
 		
 		<>

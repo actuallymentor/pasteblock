@@ -22,14 +22,26 @@ function Home() {
 	const [ loading, set_loading ] = useState( '' )
 	const navigate = useNavigate()
 
+
 	async function save_paste() {
 
 		try {
+			
+			if( !title ) {
 
-			set_loading( 'Saving paste to web3 storage' )
-			const { data: paste_meta } = await upload_file_to_web3( { data_string: content, name: title } )
-			log( `Received paste meta: `, paste_meta )
-			navigate( `/view/${ paste_meta.cid }` )
+				const title = 'Untitled'
+				set_loading( 'Saving paste to web3 storage' )
+				const { data: paste_meta } = await upload_file_to_web3( { data_string: content, name: title } )
+				log( `Received paste meta with default value: `, paste_meta )
+				navigate( `/view/${ paste_meta.cid }` )
+
+			} else {
+
+				set_loading( 'Saving paste to web3 storage' )
+				const { data: paste_meta } = await upload_file_to_web3( { data_string: content, name: title } )
+				log( `Received paste meta: `, paste_meta )
+				navigate( `/view/${ paste_meta.cid }` )
+			}
 
 		} catch( e ) {
 			set_loading( false )
@@ -37,8 +49,6 @@ function Home() {
 		}
 
 	}
-
-	if( loading ) return <Loading message={ loading } />
 
 	return (
 		

@@ -28,7 +28,7 @@ export default function PublicWidget() {
 			</TitleContainer>
 
 			<InfoContainer> 
-				 { relativeDays( paste.updated ) } | { humanFileSize( paste.size_in_bytes ) } 
+				{ relativeDays( paste.updated ) } | { humanFileSize( paste.size_in_bytes ) } 
 			</InfoContainer>
 		</PasteItem>
 	))
