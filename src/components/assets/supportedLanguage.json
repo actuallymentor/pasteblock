@@ -1,0 +1,34 @@
+[
+    {
+        "label": "javascript",
+        "value": "javascript"
+    },
+    {
+        "label": "css",
+        "value": "css"
+    },
+    {
+        "label": "json",
+        "value": "json"
+    },
+    {
+        "label": "markdown",
+        "value": "markdown"
+    },
+    {
+        "label": "php",
+        "value": "php"
+    },
+    {
+        "label": "python",
+        "value": "python"
+    },
+    {
+        "label": "plaintext",
+        "value": "plaintext"
+    },
+    {
+        "label": "shell",
+        "value": "shell"
+    }
+]
